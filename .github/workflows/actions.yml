@@ -1,5 +1,5 @@
 name: Practice Actions
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
