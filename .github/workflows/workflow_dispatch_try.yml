@@ -1,0 +1,36 @@
+name: workflow_dispatch_inputs_try
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log Level La with chocie type'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - A options
+        - B options
+      tags:
+        type: boolean
+        required: true
+        description: 'Test boolean type'
+      environment:
+        type: environment
+        description: 'Test envrionemnt type'
+        required: true
+jobs:
+  log-the-input:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log Level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "ENV: $ENV"
+        env:
+          LEVEL: ${{inputs.logLevel}}
+          TAGS: ${{ inputs.tags }}
+          ENV: ${{ inputs.environment }}
+    
+      
+      
