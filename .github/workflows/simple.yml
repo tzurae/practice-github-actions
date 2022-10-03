@@ -4,6 +4,8 @@ jobs:
   run-shell-command:
      runs-on: ubuntu-latest
      steps:
+       - name: Checkout
+         uses: actions/checkout@v1
        - name: echo current Dircotry
          run: |
            pwd
