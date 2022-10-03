@@ -4,19 +4,23 @@ jobs:
   run-shell-command:
      runs-on: ubuntu-latest
      steps:
+       - name: echo current Dircotry
+         run: |
+           pwd
+           ls
        - name: echo a string
          run: echo "Hello world"
        - name: multiline script
          run: |
            node -v
            npm -v
-  run-windows-commands:
-     runs-on: windows-latest
-     needs: [run-shell-command]
-     steps:
-       - name: Dictory Powershell
-         run: Get-Location
-       - name: Dircotry Bash
-         run: pwd
-         shell: bash
+  # run-windows-commands:
+  #    runs-on: windows-latest
+  #    needs: [run-shell-command]
+  #    steps:
+  #      - name: Dictory Powershell
+  #        run: Get-Location
+  #      - name: Dircotry Bash
+  #        run: pwd
+  #        shell: bash
      
