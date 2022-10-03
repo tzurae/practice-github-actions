@@ -10,3 +10,12 @@ jobs:
          run: |
            node -v
            npm -v
+  run-windows-commands:
+     runs-on: windows-latest
+     steps:
+       - name: Dictory Powershell
+         run: Get-Location
+       - name: Dircotry Bash
+         run: pwd
+         shell: bash
+     
