@@ -1,11 +1,30 @@
 name: practice default or custom environment variables
 on: push
+# Global env
 env:
   ALL_WF_ENV: Avail to all jobs
 jobs:
   log-env:
     runs-on: ubuntu-latest
+    # job env
+    env:
+      local_job: Local job variable
     steps:
       - name: Log ENV variables
+        # step env
+        env:
+          step_env: Step variable
         run: |
           echo "ALL_WF_ENV: ${ALL_WF_ENV}"
+  log-default-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Defualt env variables
+        run: |
+          echo "HOME: ${HOME}"
+          echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+          echo "GITHUB_REPOS: ${GITHUB_REPOSITORY}"
+          echo "GITHUB_SHA: ${GITHUB_SHA}"
+
