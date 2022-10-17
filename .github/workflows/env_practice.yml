@@ -1,0 +1,11 @@
+name: practice default or custom environment variables
+on: push
+env:
+  ALL_WF_ENV: Avail to all jobs
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log ENV variables
+        run: |
+          echo "ALL_WF_ENV: ${ALL_WF_ENV}"
